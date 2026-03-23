@@ -6,9 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>Sacred Union — Wedding Invitation</title>
+    <title>Eternal Radiance — Wedding Invitation</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700;800&family=Quicksand:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -19,65 +19,66 @@
       }
 
       :root {
-        --ivory-bg: #fef7e8;
-        --deep-ruby: #7a2e3a;
-        --burnt-amber: #c47a44;
-        --soft-gold: #dab066;
-        --antique-gold: #b88b4a;
-        --sage-mist: #8aa0a0;
-        --plum-shadow: #3a2a2f;
-        --champagne: #faeedc;
-        --text-dark: #2d2a24;
-        --text-warm: #4a3e35;
-        --border-glow: rgba(186, 110, 64, 0.3);
-        --petal-pink: #e6bcb4;
+ 
+        --cream-warm: #fff5eb;
+        --golden-soft: #f9c56b;
+        --coral-mist: #faa576;
+        --text-dark: #3a2c1f;
+        --text-warm: #5e4b36;
+        --white-soft: #fffcf8;
       }
 
       body {
-        background: #2c2420;
-        font-family: "Cormorant Garamond", serif;
-        color: var(--text-warm);
+        background: black;
+        font-family: "Cormorant Garamond", "Quicksand", serif;
+        color: var(--text-dark);
         overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
       }
 
-      /* ========== ANIMATIONS ========== */
-      @keyframes spinCW {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes spinCCW {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(-360deg);
-        }
-      }
-      @keyframes pulseGlow {
-        0%,
-        100% {
-          opacity: 0.5;
-          filter: blur(2px);
+      /* ========== SLOW & ELEGANT ANIMATIONS ========== */
+      @keyframes spinGlowSlow {
+        0% {
+          transform: rotate(0deg) scale(0.8);
+          opacity: 0;
         }
         50% {
-          opacity: 1;
-          filter: blur(0px);
+          transform: rotate(180deg) scale(1.1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: rotate(360deg) scale(1);
+          opacity: 0;
         }
       }
-      @keyframes floatUp {
+
+      @keyframes floatMagicSlow {
         0%,
         100% {
-          transform: translateY(0px);
+          transform: translateY(0px) translateX(0px) rotate(0deg);
         }
-        50% {
-          transform: translateY(-12px);
+        33% {
+          transform: translateY(-15px) translateX(8px) rotate(3deg);
+        }
+        66% {
+          transform: translateY(8px) translateX(-5px) rotate(-2deg);
         }
       }
-      @keyframes shimmerGold {
+
+      @keyframes pulseGlowSlow {
+        0%,
+        100% {
+          text-shadow: 0 0 3px rgba(249, 197, 107, 0.4);
+          transform: scale(1);
+        }
+        50% {
+          text-shadow: 0 0 15px rgba(249, 197, 107, 0.6);
+          transform: scale(1.02);
+        }
+      }
+
+      @keyframes shimmerWaveSlow {
         0% {
           background-position: -200% 0;
         }
@@ -85,105 +86,169 @@
           background-position: 200% 0;
         }
       }
-      @keyframes fadeRise {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes softGlow {
-        0%,
-        100% {
-          text-shadow: 0 0 5px rgba(186, 110, 64, 0.3);
-        }
-        50% {
-          text-shadow: 0 0 20px rgba(186, 110, 64, 0.6);
-        }
-      }
-      @keyframes petalDrift {
+
+      @keyframes driftUpSparkleSlow {
         0% {
-          transform: translateX(-20px) rotate(0deg) translateY(0);
+          transform: translateY(100vh) rotate(0deg);
           opacity: 0;
         }
-        15% {
-          opacity: 0.8;
+        20% {
+          opacity: 0.7;
         }
-        85% {
+        80% {
           opacity: 0.5;
         }
         100% {
-          transform: translateX(110vw) rotate(380deg) translateY(-80px);
+          transform: translateY(-20vh) rotate(360deg);
           opacity: 0;
         }
       }
-      @keyframes borderShine {
+
+      @keyframes slideSwirlSlow {
         0% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 200% 50%;
-        }
-      }
-      @keyframes gentleSway {
-        0%,
-        100% {
-          transform: rotate(0deg);
+          transform: translateX(-30vw) rotate(-20deg);
+          opacity: 0;
         }
         25% {
-          transform: rotate(1deg);
+          opacity: 0.7;
+          transform: translateX(15vw) rotate(10deg);
         }
-        75% {
-          transform: rotate(-1deg);
+        100% {
+          transform: translateX(110vw) rotate(120deg);
+          opacity: 0;
         }
       }
 
-      /* SPLASH SCREEN */
+      @keyframes bounceGentleSlow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes rotate3DSlow {
+        0% {
+          transform: perspective(500px) rotateY(0deg);
+        }
+        100% {
+          transform: perspective(500px) rotateY(360deg);
+        }
+      }
+
+      /* Floating Elements - Slower & Elegant */
+      .sparkle-particle {
+        position: fixed;
+        pointer-events: none;
+        z-index: 1;
+        font-size: 1rem;
+        animation: driftUpSparkleSlow linear infinite;
+        filter: drop-shadow(0 0 4px #f9c56b);
+      }
+
+      .swirl-petal {
+        position: fixed;
+        pointer-events: none;
+        z-index: 2;
+        font-size: 1.1rem;
+        animation: slideSwirlSlow linear infinite;
+        filter: drop-shadow(0 0 6px rgba(249, 197, 107, 0.5));
+      }
+
+      .glow-orb {
+        position: fixed;
+        background: radial-gradient(
+          circle,
+          rgba(249, 197, 107, 0.4),
+          rgba(217, 122, 62, 0.15)
+        );
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(30px);
+        animation: floatMagicSlow 12s ease-in-out infinite;
+      }
+
+      .floating-mandala {
+        position: fixed;
+        pointer-events: none;
+        font-size: 1.6rem;
+        animation: spinGlowSlow 18s linear infinite;
+        opacity: 0.25;
+        z-index: 0;
+      }
+
+      /* SPLASH SCREEN - Softer & Elegant */
       #splash {
         position: fixed;
         inset: 0;
         z-index: 9999;
-        background: linear-gradient(145deg, #2a1e1a, #1f1412);
+        background: radial-gradient(
+          circle at center,
+          #ac6e31,
+          #130d0a,
+          #552f1f
+        );
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         transition:
-          opacity 1.4s ease,
-          transform 1.2s ease;
+          opacity 1.8s cubic-bezier(0.2, 0.9, 0.4, 1),
+          transform 1.5s ease;
+        overflow: hidden;
       }
       #splash.hide {
         opacity: 0;
         pointer-events: none;
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
       .splash-mandala {
-        width: min(340px, 70vw);
-        height: min(340px, 70vw);
-        animation: floatUp 3s ease-in-out infinite;
+        width: min(300px, 65vw);
+        height: auto;
+        animation:
+          floatMagicSlow 4s ease-in-out infinite,
+          pulseGlowSlow 3s infinite;
+        z-index: 10;
+        position: relative;
+        filter: drop-shadow(0 0 15px rgba(249, 197, 107, 0.6));
       }
       .splash-couple {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2rem, 7vw, 3.6rem);
+        font-family: "Great Vibes", "Dancing Script", cursive;
+        font-size: clamp(2rem, 7vw, 3.8rem);
         font-weight: 600;
-        background: linear-gradient(135deg, #f3e0c2, #e2bc8c, #d49c6c);
+        background: linear-gradient(135deg, #fff5eb, #f9c56b, #ffdea5);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         margin-top: 1rem;
-        animation: fadeRise 0.8s 0.8s both;
+        animation:
+          fadeSlideUp 1s 0.8s both,
+          pulseGlowSlow 3s infinite;
+        z-index: 10;
+        letter-spacing: 2px;
       }
       .splash-tag {
         font-family: "Montserrat", sans-serif;
-        font-size: 0.65rem;
-        letter-spacing: 0.5rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.4rem;
         text-transform: uppercase;
-        color: #b88b6a;
+        color: #ffe8cf;
         margin-top: 1rem;
-        animation: fadeRise 0.6s 1.2s both;
+        animation: fadeSlideUp 0.9s 1.2s both;
+        z-index: 10;
+      }
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(35px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       /* MAIN CONTAINER */
@@ -191,694 +256,632 @@
         opacity: 0;
         transform: translateY(25px);
         transition:
-          opacity 1s ease,
-          transform 0.9s ease;
+          opacity 1.2s ease,
+          transform 1.2s ease;
+        position: relative;
+        z-index: 10;
       }
       #main.show {
         opacity: 1;
         transform: translateY(0);
       }
 
-      /* BACKGROUND ELEGANCE */
-      .bg-texture {
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        background: radial-gradient(ellipse at 30% 40%, #f5ede4, #e8ddcf);
-      }
-      .bg-texture::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(
-          circle at 15% 30%,
-          rgba(186, 110, 64, 0.08) 1.5px,
-          transparent 1.5px
-        );
-        background-size: 35px 35px;
-        pointer-events: none;
-      }
-
-      /* HERO SECTION */
+      /* HERO SECTION - Elegant */
       .hero {
         position: relative;
-        padding: 2rem 1.5rem 1rem;
+        padding: 2rem 1.5rem;
         text-align: center;
+        z-index: 5;
       }
-      .arch-container {
-        max-width: 900px;
-        margin: 0 auto;
-        position: relative;
-        padding: 3rem 1.8rem 4rem;
-        background: rgba(255, 252, 245, 0.4);
-        backdrop-filter: blur(1px);
-        border-radius: 2px;
-      }
-      .arch-border {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border: 1px solid rgba(186, 110, 64, 0.25);
-        pointer-events: none;
-      }
-      .pre-title {
+
+      .hero-badge {
+        display: inline-block;
         font-family: "Montserrat", sans-serif;
-        letter-spacing: 0.45rem;
-        font-size: 0.7rem;
-        color: #b88b6a;
-        margin-bottom: 1.8rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.35rem;
+        color: #fff5eb;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0.5rem 1.4rem;
+        border-radius: 50px;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(249, 197, 107, 0.5);
+        animation: bounceGentleSlow 3s ease-in-out infinite;
       }
-      .names-wed {
+
+      .couple-ring {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+      }
+
+      .ring-icon {
+        font-size: 2.2rem;
+        animation: pulseGlowSlow 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 5px #f9c56b);
+      }
+
+      .portrait-frame {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2.5px solid #f9c56b;
+        overflow: hidden;
+        animation: rotate3DSlow 12s linear infinite;
+        box-shadow: 0 0 12px rgba(249, 197, 107, 0.4);
+        transition: transform 0.4s;
+      }
+      .portrait-frame:hover {
+        transform: scale(1.03);
+        animation-play-state: paused;
+      }
+      .portrait-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .names-block {
         text-align: center;
+        margin: 1.2rem 0;
       }
-      .groom-name,
-      .bride-name {
-        font-family: "Playfair Display", serif;
+
+      .name-groom,
+      .name-bride {
+        font-family: "Great Vibes", "Dancing Script", cursive;
         font-weight: 700;
-        font-size: clamp(3rem, 9vw, 6rem);
-        background: linear-gradient(135deg, #7a2e3a, #c47a44, #dab066, #c47a44);
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        background: linear-gradient(135deg, #fff5eb, #ffdea5, #f9c56b);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        line-height: 1;
-        letter-spacing: 2px;
+        line-height: 1.2;
+        letter-spacing: 1px;
+        animation: pulseGlowSlow 3s infinite;
       }
-      .wedding-union {
+
+      .wedding-symbol {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
-        margin: 1rem 0;
-      }
-      .union-line {
-        width: 70px;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #c47a44, transparent);
-      }
-      .union-symbol {
-        font-family: "Cormorant Garamond", serif;
-        font-style: italic;
-        font-size: 1.3rem;
-        color: #c47a44;
-        letter-spacing: 3px;
-      }
-      .wedding-quote {
-        font-size: 1rem;
-        color: #9b7a62;
-        margin-top: 1.5rem;
-        font-style: italic;
-      }
-      .mini-mandala {
-        width: 70px;
-        margin: 1.2rem auto;
-        opacity: 0.7;
+        gap: 1.2rem;
+        margin: 0.8rem 0;
       }
 
-      /* DATE BAND - MARQUEE STYLE */
-      .date-band {
-        background: rgba(90, 65, 55, 0.25);
-        backdrop-filter: blur(6px);
-        border-top: 1px solid rgba(186, 110, 64, 0.3);
-        border-bottom: 1px solid rgba(186, 110, 64, 0.3);
-        margin: 2rem 0;
-        padding: 1.8rem 0;
+      .symbol-line {
+        width: 60px;
+        height: 1.5px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #f9c56b,
+          #fff5eb,
+          #f9c56b,
+          transparent
+        );
       }
-      .date-grid {
-        max-width: 880px;
-        margin: 0 auto;
+
+      .symbol-icon {
+        font-family: "Great Vibes", cursive;
+        font-size: 1.6rem;
+        color: #f9c56b;
+        animation: bounceGentleSlow 2.5s infinite;
+      }
+
+      .wedding-date-badge {
+        display: inline-block;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 0.7rem 1.8rem;
+        border-radius: 60px;
+        margin-top: 1.2rem;
+        border: 1px solid rgba(249, 197, 107, 0.5);
+      }
+
+      .wedding-date-badge p {
+        font-size: 0.95rem;
+        color: #fff5eb;
+        font-weight: 500;
+      }
+
+      .quote-text {
+        font-size: 0.95rem;
+        color: #fff5eb;
+        max-width: 500px;
+        margin: 1.2rem auto 0;
+        font-style: italic;
+        line-height: 1.5;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+      }
+
+      /* INFO CARDS - Soft Glow */
+      .info-cards {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem 3rem;
-      }
-      .date-card {
-        text-align: center;
-        min-width: 130px;
-      }
-      .date-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .date-label {
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.55rem;
-        letter-spacing: 0.25rem;
-        text-transform: uppercase;
-        color: #b28b6e;
-      }
-      .date-value {
-        font-family: "Playfair Display", serif;
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: #7a4c34;
-        margin-top: 0.4rem;
+        gap: 1rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        max-width: 950px;
       }
 
-      /* CARD SECTION */
-      .card-section {
+      .info-card {
+        background: rgba(255, 245, 235, 0.12);
+        backdrop-filter: blur(10px);
+        padding: 0.9rem 1.3rem;
+        border-radius: 32px;
+        text-align: center;
+        min-width: 115px;
+        border: 1px solid rgba(249, 197, 107, 0.4);
+        transition: all 0.4s ease;
+        animation: floatMagicSlow 5s ease-in-out infinite;
+        animation-delay: calc(var(--i, 0) * 0.3s);
+      }
+      .info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 245, 235, 0.25);
+        border-color: #f9c56b;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      .info-icon {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+        filter: drop-shadow(0 0 3px #f9c56b);
+      }
+      .info-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.5rem;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+        color: #ffe8cf;
+      }
+      .info-value {
+        font-family: "Playfair Display", serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #fff5eb;
+        margin-top: 0.2rem;
+      }
+
+      /* INVITATION CARD - Elegant Frame */
+      .card-wrapper {
         max-width: 880px;
-        margin: 3rem auto;
+        margin: 2.2rem auto;
         padding: 0 1.2rem;
-      }
-      .section-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.8rem;
-      }
-      .deco-line {
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #c47a44, transparent);
-      }
-      .deco-gem {
-        width: 24px;
-        height: 24px;
-        background: linear-gradient(135deg, #dab066, #c47a44);
-        clip-path: polygon(
-          50% 0%,
-          100% 38%,
-          82% 100%,
-          50% 75%,
-          18% 100%,
-          0% 38%
-        );
-        animation: spinCW 10s linear infinite;
-      }
-      .invitation-card-frame {
-        background: white;
-        border: 1px solid #e8dccc;
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
-      .card-inner {
         position: relative;
+        z-index: 5;
       }
-      .card-gold-bar {
-        height: 4px;
-        background: linear-gradient(90deg, #dab066, #f3e0b0, #c47a44, #dab066);
+      .card-header span {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.55rem;
+        letter-spacing: 0.4rem;
+        color: #ffe8cf;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0.4rem 1.2rem;
+        border-radius: 40px;
+      }
+      .invitation-frame {
+        background: linear-gradient(135deg, #f9c56b, #d97a3e, #e58e54);
+        border-radius: 56px;
+        padding: 3px;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
+        animation: pulseGlowSlow 3s infinite;
+      }
+      .invitation-inner {
+        background: linear-gradient(145deg, #fff8f0, #fff2e6);
+        border-radius: 54px;
+        overflow: hidden;
+      }
+      .invitation-top-bar {
+        height: 6px;
+        background: linear-gradient(90deg, #f9c56b, #d97a3e, #e58e54, #f9c56b);
         background-size: 300% 100%;
-        animation: borderShine 3s linear infinite;
+        animation: shimmerWaveSlow 5s linear infinite;
       }
-      .invitation-display {
-        width: 100%;
-        min-height: 480px;
-        background: #fffbf5;
-      }
-      .pdf-iframe {
-        width: 100%;
-        border: none;
-        height: 620px;
-        background: #fef7e8;
-      }
-      .image-card {
+      .invitation-img {
         width: 100%;
         display: block;
         object-fit: contain;
-        background: #fff6ea;
+        transition: transform 0.5s ease;
+      }
+      .invitation-img:hover {
+        transform: scale(1.01);
       }
 
-      /* RSVP SIMPLIFIED - ONLY NAME & MESSAGE */
-      .rsvp-simple-area {
-        max-width: 580px;
-        margin: 2.5rem auto;
-        padding: 2.5rem 2rem;
+      /* RSVP SECTION - Soft Animated */
+      .rsvp-modern {
+        max-width: 540px;
+        margin: 1.8rem auto;
+        padding: 1.8rem;
         text-align: center;
-        background: rgba(250, 238, 224, 0.7);
-        backdrop-filter: blur(4px);
-        border-radius: 2px;
-        border: 1px solid rgba(186, 110, 64, 0.3);
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(14px);
+        border-radius: 65px;
+        position: relative;
+        z-index: 5;
+        border: 1px solid rgba(249, 197, 107, 0.5);
+        animation: floatMagicSlow 6s ease-in-out infinite;
       }
-      .rsvp-badge {
+      .rsvp-icon {
+        font-size: 2.2rem;
+        animation: bounceGentleSlow 2s infinite;
+      }
+      .rsvp-title {
+        font-family: "Great Vibes", cursive;
+        font-size: 1.8rem;
+        color: #fff5eb;
+        margin: 0.4rem 0;
+      }
+      .rsvp-desc {
+        font-size: 0.85rem;
+        color: #ffe8cf;
+        margin-bottom: 1.2rem;
+      }
+      .btn-modern {
+        background: linear-gradient(145deg, #f9c56b, #d97a3e);
+        border: none;
+        padding: 0.8rem 2.2rem;
         font-family: "Montserrat", sans-serif;
-        font-size: 0.6rem;
-        letter-spacing: 0.4rem;
-        color: #b28b6e;
-      }
-      .rsvp-verse {
-        font-family: "Playfair Display", serif;
-        font-size: 1.7rem;
-        font-style: italic;
-        color: #7a4c34;
-        margin: 1rem 0;
-      }
-      .rsvp-note-sm {
-        font-size: 0.95rem;
-        color: #9b7a62;
-        margin-bottom: 1.8rem;
-      }
-      .btn-rsvp-elegant {
-        display: inline-block;
-        background: transparent;
-        border: 1px solid #c47a44;
-        padding: 0.8rem 3rem;
-        font-family: "Montserrat", sans-serif;
-        letter-spacing: 0.3rem;
+        letter-spacing: 0.18rem;
         font-size: 0.7rem;
         text-transform: uppercase;
-        color: #c47a44;
+        color: #fff5eb;
         cursor: pointer;
         transition: all 0.4s;
-        position: relative;
-        overflow: hidden;
+        border-radius: 55px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
       }
-      .btn-rsvp-elegant:hover {
-        background: #c47a44;
-        color: #fff2e6;
+      .btn-modern:hover {
+        transform: scale(1.03);
+        background: linear-gradient(145deg, #fad07a, #e58e54);
+        box-shadow: 0 6px 20px rgba(249, 197, 107, 0.5);
       }
 
-      /* SHARE BUTTONS */
-      .share-buttons {
+      /* SHARE SECTION */
+      .share-modern {
         display: flex;
         gap: 1rem;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 2rem 0;
+        margin: 1.2rem 0;
       }
-      .share-icon {
+      .share-item {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.5rem 1.5rem;
-        border: 1px solid rgba(186, 110, 64, 0.3);
-        background: rgba(255, 245, 235, 0.5);
+        padding: 0.5rem 1.3rem;
+        border: 1px solid rgba(249, 197, 107, 0.5);
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(6px);
         font-family: "Montserrat", sans-serif;
         font-size: 0.55rem;
-        letter-spacing: 0.2rem;
+        letter-spacing: 0.12rem;
         text-transform: uppercase;
-        color: #8b694e;
+        color: #fff5eb;
         cursor: pointer;
         text-decoration: none;
-        transition: all 0.25s;
+        border-radius: 45px;
+        transition: all 0.3s;
       }
-      .share-icon:hover {
-        border-color: #c47a44;
-        color: #c47a44;
-        background: rgba(196, 122, 68, 0.1);
+      .share-item:hover {
+        border-color: #f9c56b;
+        background: rgba(249, 197, 107, 0.2);
+        transform: translateY(-2px);
       }
 
       /* FOOTER */
-      .footer-blessings {
+      .footer-modern {
         text-align: center;
-        padding: 3rem 1rem 2.5rem;
+        padding: 1.8rem 1rem 2.5rem;
+        position: relative;
+        z-index: 5;
       }
-      .footer-couple {
-        font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
-        background: linear-gradient(120deg, #9b6a4a, #c47a44);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+      .footer-names {
+        font-family: "Great Vibes", cursive;
+        font-size: 1.4rem;
+        color: #fff5eb;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
       }
-      .footer-copyright {
-        font-size: 0.55rem;
-        letter-spacing: 0.2rem;
-        color: #b28b6e;
-        margin-top: 0.5rem;
-      }
-
-      /* PARTICLES & PETALS */
-      .particle {
-        position: fixed;
-        pointer-events: none;
-        z-index: 2;
-        animation: petalDrift linear infinite;
-      }
-      .floating-flower {
-        position: fixed;
-        pointer-events: none;
-        z-index: 2;
-        animation: petalDrift linear infinite;
+      .footer-copy {
+        font-size: 0.5rem;
+        letter-spacing: 0.18rem;
+        color: #ffe8cf;
+        margin-top: 0.4rem;
       }
 
-      /* MODAL - SIMPLIFIED (NAME + MESSAGE ONLY) */
-      .modal-simple {
+      /* MODAL */
+      .modal-modern {
         position: fixed;
         inset: 0;
-        background: rgba(40, 30, 25, 0.88);
-        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(14px);
         z-index: 9998;
         display: flex;
         align-items: center;
         justify-content: center;
         visibility: hidden;
         opacity: 0;
-        transition: 0.25s ease;
+        transition: 0.35s ease;
         padding: 1rem;
       }
-      .modal-simple.open {
+      .modal-modern.open {
         visibility: visible;
         opacity: 1;
       }
-      .modal-content {
+      .modal-card {
         max-width: 460px;
         width: 100%;
-        background: #fff9f0;
-        border: 1px solid #dab066;
+        background: linear-gradient(145deg, #fff8f0, #fff2e6);
+        border-radius: 52px;
         position: relative;
         transform: scale(0.96);
-        transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+        transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1);
+        overflow: hidden;
       }
-      .modal-simple.open .modal-content {
+      .modal-modern.open .modal-card {
         transform: scale(1);
       }
-      .modal-header-simple {
-        padding: 1.8rem 2rem 0.5rem;
+      .modal-header {
+        padding: 1.3rem;
         text-align: center;
-        border-bottom: 1px solid rgba(186, 110, 64, 0.2);
+        background: linear-gradient(135deg, #d97a3e, #c96a32);
       }
-      .modal-header-simple h3 {
-        font-family: "Playfair Display", serif;
-        font-size: 1.8rem;
-        color: #7a4c34;
+      .modal-header h3 {
+        font-family: "Great Vibes", cursive;
+        font-size: 1.6rem;
+        color: #fff5eb;
       }
-      .modal-close-simple {
+      .modal-close {
         position: absolute;
-        top: 14px;
-        right: 18px;
+        top: 12px;
+        right: 16px;
         background: none;
         border: none;
-        font-size: 1.2rem;
-        color: #b28b6e;
+        font-size: 1.1rem;
+        color: #f9c56b;
         cursor: pointer;
       }
-      .form-minimal {
-        padding: 1.8rem 2rem 2rem;
+      .modal-form {
+        padding: 1.6rem 2rem 2rem;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.2rem;
       }
-      .input-elegant {
+      .form-group {
         display: flex;
         flex-direction: column;
-        gap: 0.4rem;
+        gap: 0.3rem;
       }
-      .input-elegant label {
+      .form-group label {
         font-family: "Montserrat", sans-serif;
-        font-size: 0.65rem;
-        letter-spacing: 0.2rem;
-        text-transform: uppercase;
-        color: #9b7a62;
+        font-size: 0.55rem;
+        letter-spacing: 0.18rem;
+        color: #c96a32;
       }
-      .input-elegant input,
-      .input-elegant textarea {
-        background: #fffbf0;
-        border: 1px solid #e8d4bc;
-        padding: 0.8rem 1rem;
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1rem;
-        color: #3a2a24;
+      .form-group input,
+      .form-group textarea {
+        background: white;
+        border: 1.5px solid #f9c56b;
+        padding: 0.7rem 1rem;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.9rem;
+        border-radius: 28px;
         transition: 0.2s;
       }
-      .input-elegant input:focus,
-      .input-elegant textarea:focus {
+      .form-group input:focus,
+      .form-group textarea:focus {
         outline: none;
-        border-color: #c47a44;
+        border-color: #d97a3e;
+        box-shadow: 0 0 0 2px rgba(217, 122, 62, 0.2);
       }
-      .btn-submit-love {
-        background: linear-gradient(95deg, #c47a44, #dab066);
+      .btn-submit {
+        background: linear-gradient(145deg, #f9c56b, #d97a3e);
         border: none;
-        padding: 0.9rem;
+        padding: 0.8rem;
         font-family: "Montserrat", sans-serif;
-        letter-spacing: 0.2rem;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: #fff;
+        letter-spacing: 0.18rem;
+        font-weight: 600;
+        color: #fff5eb;
         cursor: pointer;
-        transition: all 0.2s;
+        border-radius: 45px;
+        transition: all 0.25s;
       }
-      .btn-submit-love:hover {
-        opacity: 0.9;
+      .btn-submit:hover {
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(217, 122, 62, 0.3);
       }
-      .success-message {
+      .success-msg {
         display: none;
-        padding: 1.5rem;
-        background: rgba(196, 122, 68, 0.15);
-        border: 1px solid #dab066;
+        padding: 1.3rem;
+        background: rgba(249, 197, 107, 0.2);
         text-align: center;
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1rem;
-        font-style: italic;
-        color: #7a4c34;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.9rem;
+        color: #c96a32;
       }
 
       /* MUSIC BUTTON */
-      .music-toggle {
+      .music-modern {
         position: fixed;
-        bottom: 1.8rem;
-        right: 1.8rem;
-        width: 48px;
-        height: 48px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
-        background: rgba(255, 245, 235, 0.85);
+        background: linear-gradient(145deg, #f9c56b, #d97a3e);
         backdrop-filter: blur(6px);
-        border: 1px solid #dab066;
-        color: #c47a44;
+        border: none;
+        color: #fff5eb;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1.2rem;
         cursor: pointer;
         z-index: 1000;
-        transition: 0.2s;
+        transition: 0.25s;
+        animation: pulseGlowSlow 2s infinite;
       }
-      .music-toggle:hover {
-        transform: scale(1.08);
+      .music-modern:hover {
+        transform: scale(1.05);
       }
 
-      @media (max-width: 700px) {
-        .date-grid {
-          gap: 1.2rem;
+      @media (max-width: 650px) {
+        .info-card {
+          min-width: 95px;
+          padding: 0.5rem 1rem;
         }
-        .form-minimal {
-          padding: 1.5rem;
+        .portrait-frame {
+          width: 60px;
+          height: 60px;
+        }
+        .couple-ring {
+          gap: 0.8rem;
+        }
+        .hero-badge {
+          font-size: 0.55rem;
+          letter-spacing: 0.25rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- SPLASH ANIMATION -->
     <div id="splash">
       <div class="splash-mandala">
-        <svg viewBox="0 0 200 200" fill="none">
-          <circle
-            cx="100"
-            cy="100"
-            r="88"
-            stroke="#dab066"
-            stroke-width="0.8"
-            stroke-dasharray="4 6"
-            fill="none"
-          />
-          <g
-            transform="translate(100,100)"
-            style="animation: spinCW 20s linear infinite"
-          >
-            <ellipse rx="8" ry="24" cy="-75" fill="#c47a44" opacity="0.7" />
-            <ellipse
-              rx="8"
-              ry="24"
-              cy="-75"
-              fill="#dab066"
-              opacity="0.7"
-              transform="rotate(45)"
-            />
-            <ellipse
-              rx="8"
-              ry="24"
-              cy="-75"
-              fill="#c47a44"
-              opacity="0.7"
-              transform="rotate(90)"
-            />
-            <ellipse
-              rx="8"
-              ry="24"
-              cy="-75"
-              fill="#dab066"
-              opacity="0.7"
-              transform="rotate(135)"
-            />
-          </g>
-          <g
-            transform="translate(100,100)"
-            style="animation: spinCCW 14s linear infinite"
-          >
-            <ellipse rx="6" ry="18" cy="-48" fill="#e6bcb4" opacity="0.8" />
-            <ellipse
-              rx="6"
-              ry="18"
-              cy="-48"
-              fill="#e6bcb4"
-              opacity="0.8"
-              transform="rotate(60)"
-            />
-            <ellipse
-              rx="6"
-              ry="18"
-              cy="-48"
-              fill="#e6bcb4"
-              opacity="0.8"
-              transform="rotate(120)"
-            />
-          </g>
-          <circle
-            cx="100"
-            cy="100"
-            r="24"
-            fill="#f9ede0"
-            stroke="#dab066"
-            stroke-width="1"
-          />
-          <circle
-            cx="100"
-            cy="100"
-            r="8"
-            fill="#c47a44"
-            style="animation: pulseGlow 1.5s infinite"
-          />
-        </svg>
+        <img
+          src="3344439-removebg-preview.png"
+          width="260px"
+          height="auto"
+          alt="Mandala"
+        />
       </div>
       <div class="splash-couple" id="splashNames">Arjun & Meera</div>
-      <div class="splash-tag">✦ SACRED UNION ✦</div>
+      <div class="splash-tag">✦ ETERNAL VOWS ✦</div>
     </div>
 
     <div id="main">
-      <div class="bg-texture"></div>
-
-      <!-- HERO SECTION -->
       <section class="hero">
-        <div class="arch-container">
-          <div class="arch-border"></div>
-          <div class="pre-title">— With Hearts United —</div>
-          <div class="names-wed">
-            <span class="groom-name" id="groomNameDisplay">Arjun</span>
-            <div class="wedding-union">
-              <div class="union-line"></div>
-              <div class="union-symbol">✦ eternally ✦</div>
-              <div class="union-line"></div>
-            </div>
-            <span class="bride-name" id="brideNameDisplay">Meera</span>
+        <div class="hero-badge">✦ SAVE THE DATE ✦</div>
+        <div class="couple-ring" id="portraitsContainer">
+          <div class="ring-icon">💍</div>
+          <div class="ring-icon">💕</div>
+          <div class="ring-icon">💍</div>
+        </div>
+        <div class="names-block">
+          <div class="name-groom" id="groomNameDisplay">Arjun</div>
+          <div class="wedding-symbol">
+            <div class="symbol-line"></div>
+            <div class="symbol-icon">&</div>
+            <div class="symbol-line"></div>
           </div>
-          <div class="mini-mandala">
-            <svg viewBox="0 0 40 40">
-              <circle cx="20" cy="20" r="14" stroke="#c47a44" fill="none" />
-              <circle cx="20" cy="20" r="6" fill="#dab066" opacity="0.7" />
-            </svg>
-          </div>
-          <div class="wedding-quote">
-            request the honour of your presence at their wedding celebration
-          </div>
+          <div class="name-bride" id="brideNameDisplay">Meera</div>
+        </div>
+        <div class="wedding-date-badge">
+          <p>are getting married</p>
+        </div>
+        <div class="quote-text">
+          "Together with their families, they request the honour of your
+          presence"
         </div>
       </section>
 
-      <!-- DATE BAND -->
-      <div class="date-band">
-        <div class="date-grid">
-          <div class="date-card">
-            <div class="date-icon">🌾</div>
-            <div class="date-label">DATE</div>
-            <div class="date-value" id="eventDateDisplay">
-              22nd February 2026
+      <div class="info-cards">
+        <div class="info-card" style="--i: 0">
+          <div class="info-icon">📅</div>
+          <div class="info-label">DATE</div>
+          <div class="info-value" id="eventDateDisplay">15th March 2026</div>
+        </div>
+        <div class="info-card" style="--i: 1">
+          <div class="info-icon">🌿</div>
+          <div class="info-label">DAY</div>
+          <div class="info-value">Sunday</div>
+        </div>
+        <div class="info-card" style="--i: 2">
+          <div class="info-icon">⏰</div>
+          <div class="info-label">TIME</div>
+          <div class="info-value">6:00 PM onwards</div>
+        </div>
+        <div class="info-card" style="--i: 3">
+          <div class="info-icon">📍</div>
+          <div class="info-label">VENUE</div>
+          <div class="info-value" id="venueDisplay">
+            Royal Garden Estate<br />Jaipur
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <!-- <div class="card-header"><span>✦ INVITATION ✦</span></div> -->
+        <div class="invitation-frame">
+          <div class="invitation-inner">
+            <div class="invitation-top-bar"></div>
+            <div id="invitationContainer">
+              <img
+                class="invitation-img"
+                src="pngtree-wedding-invitation-card-with-delicate-watercolor-flowers-png-image_17243754.png"
+                alt="Wedding Invitation"
+                style="width: 100%; height: auto"
+              />
             </div>
           </div>
-          <div class="date-card">
-            <div class="date-icon">🌼</div>
-            <div class="date-label">DAY</div>
-            <div class="date-value">Sunday</div>
-          </div>
-          <div class="date-card">
-            <div class="date-icon">🍂</div>
-            <div class="date-label">TIME</div>
-            <div class="date-value">5:30 PM onwards</div>
-          </div>
-          <div class="date-card">
-            <div class="date-icon">🏛️</div>
-            <div class="date-label">VENUE</div>
-            <div class="date-value" id="venueDisplay">
-              The Royal Heritage<br />Jaipur
-            </div>
-          </div>
         </div>
       </div>
-
-      <!-- INVITATION CARD (PDF/IMAGE) -->
-      <div class="card-section">
-        <div class="section-header">
-          <div class="deco-line"></div>
-          <div class="deco-gem"></div>
-          <div class="deco-line"></div>
+<br>
+      <div class="rsvp-modern">
+        <div class="rsvp-icon">💌✨</div>
+        <div class="rsvp-title">Kindly Respond</div>
+        <div class="rsvp-desc">
+          Your presence will make our celebration complete
         </div>
-        <div class="invitation-card-frame">
-          <div class="card-inner">
-            <div class="card-gold-bar"></div>
-            <div id="invitationContainer" class="invitation-display"></div>
-          </div>
-        </div>
+        <button class="btn-modern" id="openRsvpBtn">Send Blessings ✦</button>
       </div>
 
-      <!-- RSVP SIMPLIFIED - ONLY NAME & MESSAGE -->
-      <div class="rsvp-simple-area">
-        <div class="rsvp-badge">✦ GRACIOUS RESPONSE ✦</div>
-        <div class="rsvp-verse">"Your blessing makes our joy complete"</div>
-        <p class="rsvp-note-sm">
-          Share your love with a heartfelt message — we cherish every word.
-        </p>
-        <button class="btn-rsvp-elegant" id="openRsvpBtn">
-          Send Blessings ✦
-        </button>
-      </div>
 
-      <!-- <div class="share-buttons">
-    <button class="share-icon" onclick="copyInvitationLink()">📋 Copy Link</button>
-    <a class="share-icon" id="whatsappShareBtn" href="#" target="_blank">💬 WhatsApp</a>
-  </div> -->
 
-      <footer class="footer-blessings">
-        <div class="footer-couple" id="footerNames">Arjun & Meera</div>
-        <div class="footer-copyright">With Gratitude & Eternal Love</div>
+      <footer class="footer-modern">
+        <div class="footer-names" id="footerNames">Arjun & Meera</div>
+        <div class="footer-copy">With Gratitude & Eternal Love</div>
       </footer>
     </div>
 
-    <!-- SIMPLE RSVP MODAL: NAME + MESSAGE ONLY -->
-    <div class="modal-simple" id="rsvpModalSimple">
-      <div class="modal-content">
-        <div class="modal-header-simple">
+    <div class="modal-modern" id="rsvpModal">
+      <div class="modal-card">
+        <div class="modal-header">
           <h3>Your Loving Words</h3>
-          <button class="modal-close-simple" id="closeModalBtn">✕</button>
+          <button class="modal-close" id="closeModalBtn">✕</button>
         </div>
-        <div class="form-minimal">
-          <div class="input-elegant">
+        <div class="modal-form" id="rsvpFormDiv">
+          <div class="form-group">
             <label>✦ YOUR NAME *</label
             ><input
               type="text"
               id="guestNameInput"
-              placeholder="e.g. Ananya Sharma"
+              placeholder="Enter your full name"
             />
           </div>
-          <div class="input-elegant">
-            <label>💌 BLESSINGS & MESSAGE</label
+          <div class="form-group">
+            <label>💌 HEARTFELT MESSAGE</label
             ><textarea
               rows="3"
               id="guestMessageInput"
-              placeholder="Share your warm wishes, blessings or cherished words..."
+              placeholder="Share your warm wishes and blessings..."
             ></textarea>
           </div>
-          <button class="btn-submit-love" id="submitRsvpBtn">
+          <button class="btn-submit" id="submitRsvpBtn">
             Send with Love ✦
           </button>
         </div>
-        <div class="success-message" id="rsvpSuccessMsg">
-          🌸 Thank you! Your heartfelt blessing has reached us. We're deeply
-          grateful. 🌸
+        <div class="success-msg" id="rsvpSuccessMsg">
+          ✨ Thank you! Your heartfelt blessing has reached us. We're deeply
+          grateful. ✨
         </div>
       </div>
     </div>
 
-    <button class="music-toggle" id="musicButton">♫</button>
+    <button class="music-modern" id="musicButton">♫</button>
     <audio id="bgAudio" loop></audio>
 
     <script>
@@ -886,11 +889,10 @@
       const urlQuery = new URLSearchParams(window.location.search);
       const groomName = urlQuery.get("name1") || "Arjun";
       const brideName = urlQuery.get("name2") || "Meera";
-      const customCard = urlQuery.get("card") || "";
       const musicSource = urlQuery.get("music") || "";
-      const eventDate = urlQuery.get("date") || "22nd February 2026";
+      const eventDate = urlQuery.get("date") || "15th March 2026";
       const eventVenue =
-        urlQuery.get("venue") || "The Royal Heritage<br>Jaipur";
+        urlQuery.get("venue") || "Royal Garden Estate<br>Jaipur";
       const whatsappHost = urlQuery.get("host") || "";
 
       document.getElementById("groomNameDisplay").textContent = groomName;
@@ -904,57 +906,117 @@
       if (document.getElementById("venueDisplay"))
         document.getElementById("venueDisplay").innerHTML = eventVenue;
 
-      // INVITATION DISPLAY (PDF / IMAGE)
-      const invContainer = document.getElementById("invitationContainer");
-      if (customCard && customCard.trim() !== "") {
-        const ext = customCard.split("?")[0].split(".").pop().toLowerCase();
-        if (["jpg", "jpeg", "png", "webp", "gif", "svg"].includes(ext)) {
-          invContainer.innerHTML = `<img class="image-card" src="${customCard}" alt="Wedding Invitation" style="width:100%;">`;
-        } else {
-          invContainer.innerHTML = `<iframe class="pdf-iframe" src="${customCard}" title="Wedding Invitation"></iframe>`;
-        }
-      } else {
-        invContainer.innerHTML = `<div style="background:#fff6ea; padding:3rem 2rem; text-align:center;"><p style="font-size:1.5rem; color:#c47a44;">✦ ${groomName} & ${brideName} ✦</p><p style="margin-top:1rem;">Together with families, request your gracious presence</p><p style="margin-top:1rem;">📅 ${eventDate}<br>📍 ${eventVenue.replace("<br>", ", ")}</p>
-      <br>
-      <img src="pngtree-wedding-invitation-card-with-delicate-watercolor-flowers-png-image_17243754.png" width="100%" height="auto"/>
-      
-      </div>`;
+      // Add animated portraits
+      const portraitsContainer = document.getElementById("portraitsContainer");
+      const groomPortrait = document.createElement("div");
+      const bridePortrait = document.createElement("div");
+      groomPortrait.className = "portrait-frame";
+      bridePortrait.className = "portrait-frame";
+      groomPortrait.innerHTML = `<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Groom">`;
+      bridePortrait.innerHTML = `<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Bride">`;
+      portraitsContainer.insertBefore(
+        groomPortrait,
+        portraitsContainer.children[0],
+      );
+      portraitsContainer.appendChild(bridePortrait);
+
+      // ========== SLOWER FULL PAGE ANIMATIONS ==========
+      const sparkles = ["✨", "⭐", "🌟", "💫", "💖", "🌸", "🌼", "🪷"];
+      const swirlItems = ["🌀", "💫", "✨", "🌺", "🦋", "🌻", "🍃"];
+
+      function createSparkle() {
+        let el = document.createElement("div");
+        el.className = "sparkle-particle";
+        el.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.animationDuration = 8 + Math.random() * 12 + "s";
+        el.style.fontSize = 0.8 + Math.random() * 1.2 + "rem";
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 18000);
       }
 
-      // SPLASH DISMISS
+      function createSwirlPetal() {
+        let el = document.createElement("div");
+        el.className = "swirl-petal";
+        el.textContent =
+          swirlItems[Math.floor(Math.random() * swirlItems.length)];
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.top = Math.random() * 80 + "vh";
+        el.style.animationDuration = 10 + Math.random() * 14 + "s";
+        el.style.fontSize = 0.9 + Math.random() * 1.3 + "rem";
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 22000);
+      }
+
+      function createGlowOrb() {
+        let orb = document.createElement("div");
+        orb.className = "glow-orb";
+        let size = 70 + Math.random() * 180;
+        orb.style.width = size + "px";
+        orb.style.height = size + "px";
+        orb.style.left = Math.random() * 100 + "vw";
+        orb.style.top = Math.random() * 100 + "vh";
+        orb.style.animationDuration = 12 + Math.random() * 15 + "s";
+        document.body.appendChild(orb);
+        setTimeout(() => orb.remove(), 20000);
+      }
+
+      function createFloatingMandala() {
+        let mandala = document.createElement("div");
+        mandala.className = "floating-mandala";
+        mandala.textContent = "🪷";
+        mandala.style.left = Math.random() * 100 + "vw";
+        mandala.style.top = Math.random() * 100 + "vh";
+        mandala.style.animationDuration = 20 + Math.random() * 20 + "s";
+        mandala.style.fontSize = 1.3 + Math.random() * 1.8 + "rem";
+        document.body.appendChild(mandala);
+        setTimeout(() => mandala.remove(), 28000);
+      }
+
+      function startFullPageAnimations() {
+        for (let i = 0; i < 35; i++) setTimeout(createSparkle, i * 200);
+        for (let i = 0; i < 30; i++) setTimeout(createSwirlPetal, i * 250);
+        for (let i = 0; i < 20; i++) setTimeout(createGlowOrb, i * 350);
+        for (let i = 0; i < 12; i++) setTimeout(createFloatingMandala, i * 500);
+        setInterval(createSparkle, 3500);
+        setInterval(createSwirlPetal, 4000);
+        setInterval(createGlowOrb, 5500);
+        setInterval(createFloatingMandala, 8000);
+      }
+
+      // Splash animations and dismiss
+      function createSplashEffects() {
+        for (let i = 0; i < 45; i++) {
+          setTimeout(() => {
+            let temp = document.createElement("div");
+            temp.textContent = "✨";
+            temp.style.position = "fixed";
+            temp.style.left = Math.random() * 100 + "vw";
+            temp.style.top = Math.random() * 100 + "vh";
+            temp.style.fontSize = "0.8rem";
+            temp.style.opacity = "0.5";
+            temp.style.pointerEvents = "none";
+            temp.style.zIndex = "9999";
+            document.getElementById("splash").appendChild(temp);
+            setTimeout(() => temp.remove(), 1200);
+          }, i * 80);
+        }
+      }
+
       window.addEventListener("load", () => {
+        createSplashEffects();
         setTimeout(() => {
           const splash = document.getElementById("splash");
           splash.classList.add("hide");
           document.getElementById("main").classList.add("show");
           setTimeout(() => {
             splash.style.display = "none";
-            startParticlesAndPetals();
-          }, 1400);
-        }, 2800);
+            startFullPageAnimations();
+          }, 1800);
+        }, 3500);
       });
 
-      // PARTICLES & PETALS (animated floating elements)
-      const petals = ["🌼", "🌻", "🌸", "🌺", "✨", "🍂"];
-      const colors = ["#dab066", "#c47a44", "#e6bcb4", "#b88b6a"];
-      function spawnParticle() {
-        const el = document.createElement("div");
-        el.className = "particle";
-        el.textContent = petals[Math.floor(Math.random() * petals.length)];
-        el.style.color = colors[Math.floor(Math.random() * colors.length)];
-        el.style.fontSize = 0.7 + Math.random() * 1.2 + "rem";
-        el.style.left = Math.random() * 100 + "vw";
-        el.style.animationDuration = 9 + Math.random() * 15 + "s";
-        el.style.animationDelay = Math.random() * 5 + "s";
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 18000);
-      }
-      function startParticlesAndPetals() {
-        for (let i = 0; i < 28; i++) setTimeout(() => spawnParticle(), i * 200);
-        setInterval(spawnParticle, 3800);
-      }
-
-      // MUSIC
+      // Music
       const audioElem = document.getElementById("bgAudio");
       if (musicSource) {
         const src = document.createElement("source");
@@ -962,17 +1024,14 @@
         audioElem.appendChild(src);
       }
       const musicBtn = document.getElementById("musicButton");
-      let musicActive = false;
       function toggleAudio() {
         if (!musicSource) return;
         if (audioElem.paused) {
           audioElem.play().catch(() => {});
           musicBtn.innerHTML = "♪";
-          musicActive = true;
         } else {
           audioElem.pause();
           musicBtn.innerHTML = "♫";
-          musicActive = false;
         }
       }
       musicBtn.addEventListener("click", toggleAudio);
@@ -984,15 +1043,15 @@
         document.body.removeEventListener("click", firstPlay);
       });
 
-      // RSVP MODAL (ONLY NAME & MESSAGE)
-      const rsvpModal = document.getElementById("rsvpModalSimple");
+      // RSVP Modal
+      const rsvpModal = document.getElementById("rsvpModal");
       const openRsvpBtn = document.getElementById("openRsvpBtn");
       const closeModal = document.getElementById("closeModalBtn");
       const submitRsvp = document.getElementById("submitRsvpBtn");
       const nameField = document.getElementById("guestNameInput");
       const messageField = document.getElementById("guestMessageInput");
       const successDiv = document.getElementById("rsvpSuccessMsg");
-      const rsvpFormDiv = document.querySelector(".form-minimal");
+      const rsvpFormDiv = document.getElementById("rsvpFormDiv");
 
       function openModal() {
         rsvpModal.classList.add("open");
@@ -1017,10 +1076,8 @@
         const blessingMsg =
           messageField.value.trim() ||
           "Sending you both endless love and happiness!";
-        // Hide form, show success
         rsvpFormDiv.style.display = "none";
         successDiv.style.display = "block";
-        // Optionally send WhatsApp notification to couple if host provided
         if (whatsappHost) {
           const waText = `✨ WEDDING BLESSING ✨\n👰‍♀️🤵‍♂️ ${groomName} & ${brideName}\n━━━━━━━━━━\n👤 ${guestName}\n💌 "${blessingMsg}"\n━━━━━━━━━━\nWith love and blessings.`;
           setTimeout(() => {
@@ -1037,16 +1094,16 @@
             successDiv.style.display = "none";
             nameField.value = "";
             messageField.value = "";
-          }, 300);
-        }, 2800);
+          }, 350);
+        }, 3000);
       }
       submitRsvp.addEventListener("click", submitRsvpBlessing);
 
-      // SHARE LINKS
+      // Share links
       const currentUrl = window.location.href;
       const whatsappBtn = document.getElementById("whatsappShareBtn");
-      whatsappBtn.href = `https://wa.me/?text=${encodeURIComponent(`🌸 You're invited to the wedding of ${groomName} & ${brideName} 🌸\n${currentUrl}`)}`;
-      function copyInvitationLink() {
+      whatsappBtn.href = `https://wa.me/?text=${encodeURIComponent(`💕 You're invited to the wedding of ${groomName} & ${brideName} 💕\n${currentUrl}`)}`;
+      window.copyInvitationLink = function () {
         navigator.clipboard
           .writeText(currentUrl)
           .then(() => {
@@ -1056,8 +1113,7 @@
             setTimeout(() => (btn.textContent = original), 2000);
           })
           .catch(() => prompt("Copy link:", currentUrl));
-      }
-      window.copyInvitationLink = copyInvitationLink;
+      };
     </script>
   </body>
 </html>
