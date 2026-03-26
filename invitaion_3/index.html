@@ -1013,103 +1013,98 @@
         </div>
       </div>
 
-<!-- INVITATION CARD -->
-<div class="card-section">
-  <div class="invitation-card-frame">
+      <!-- INVITATION CARD -->
+      <div class="card-section">
+        <div class="invitation-card-frame">
+          <div id="invitationContainer" class="invitation-display">
+            <img class="invitation-img active" src="1774518761031.png" />
+            <img class="invitation-img" src="1774518780011.png" />
+          </div>
+        </div>
+      </div>
 
-    <div id="invitationContainer" class="invitation-display">
-      <img class="invitation-img active" src="1774518761031.png">
-      <img class="invitation-img" src="1774518780011.png">
-    </div>
+      <!-- FULL SCREEN VIEW -->
+      <div id="fullView">
+        <img id="fullImg" />
+      </div>
 
-  </div>
-</div>
+      <style>
+        .invitation-display {
+          text-align: center;
+        }
 
-<!-- FULL SCREEN VIEW -->
-<div id="fullView">
-  <img id="fullImg">
-</div>
+        .invitation-img {
+          width: 100%;
+          max-height: 80vh;
+          object-fit: contain;
+          display: none;
+          cursor: pointer;
+        }
 
-<style>
-.invitation-display {
-  text-align: center;
-}
+        .invitation-img.active {
+          display: block;
+        }
 
-.invitation-img {
-  width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  display: none;
-  cursor: pointer;
-}
+        /* FULL PAGE IMAGE */
+        #fullView {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #000;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+        }
 
-.invitation-img.active {
-  display: block;
-}
+        #fullView img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          cursor: pointer;
+        }
+      </style>
 
-/* FULL PAGE IMAGE */
-#fullView {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+      <script>
+        const images = document.querySelectorAll(".invitation-img");
+        let index = 0;
+        let isFullView = false;
 
-#fullView img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  cursor: pointer;
-}
-</style>
+        // show image
+        function showImage(i) {
+          images.forEach((img) => img.classList.remove("active"));
+          images[i].classList.add("active");
+        }
 
-<script>
-const images = document.querySelectorAll(".invitation-img");
-let index = 0;
-let isFullView = false;
+        // ✅ AUTO CAROUSEL (pause when full view open)
+        setInterval(() => {
+          if (!isFullView) {
+            index = (index + 1) % images.length;
+            showImage(index);
+          }
+        }, 4000);
 
-// show image
-function showImage(i) {
-  images.forEach(img => img.classList.remove("active"));
-  images[i].classList.add("active");
-}
+        // FULL VIEW
+        const fullView = document.getElementById("fullView");
+        const fullImg = document.getElementById("fullImg");
 
-// ✅ AUTO CAROUSEL (pause when full view open)
-setInterval(() => {
-  if (!isFullView) {
-    index = (index + 1) % images.length;
-    showImage(index);
-  }
-}, 4000);
+        // open full screen
+        images.forEach((img) => {
+          img.addEventListener("click", () => {
+            fullView.style.display = "flex";
+            fullImg.src = img.src;
+            isFullView = true;
+          });
+        });
 
-// FULL VIEW
-const fullView = document.getElementById("fullView");
-const fullImg = document.getElementById("fullImg");
-
-// open full screen
-images.forEach(img => {
-  img.addEventListener("click", () => {
-    fullView.style.display = "flex";
-    fullImg.src = img.src;
-    isFullView = true;
-  });
-});
-
-// close full screen
-fullView.addEventListener("click", () => {
-  fullView.style.display = "none";
-  isFullView = false;
-});
-</script>
-
-
-   
+        // close full screen
+        fullView.addEventListener("click", () => {
+          fullView.style.display = "none";
+          isFullView = false;
+        });
+      </script>
 
       <!-- RSVP SIMPLIFIED -->
       <div class="rsvp-simple-area">
@@ -1123,14 +1118,14 @@ fullView.addEventListener("click", () => {
         </button>
       </div>
 
-      <div class="share-buttons">
+      <!-- <div class="share-buttons">
         <button class="share-icon" onclick="copyInvitationLink()">
           📋 Copy Link
         </button>
         <a class="share-icon" id="whatsappShareBtn" href="#" target="_blank"
           >💬 WhatsApp</a
         >
-      </div>
+      </div> -->
 
       <footer class="footer-blessings">
         <div class="footer-couple" id="footerNames">Chirag & Gayatri</div>
