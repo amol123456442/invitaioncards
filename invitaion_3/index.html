@@ -1168,8 +1168,7 @@
       </div>
     </div>
 
-    <button class="music-toggle" id="musicButton">♫</button>
-    <audio id="bgAudio" loop></audio>
+  <button class="music-toggle" id="musicButton" >♫</button> <!-- Audio --> <audio id="bgAudio" loop> <source src="journeys-dawn.mp3" type="audio/mpeg"> </audio>
 
     <script>
       // URL Parameters
@@ -1339,31 +1338,7 @@
       });
 
       // MUSIC
-      const audioElem = document.getElementById("bgAudio");
-      if (musicSource) {
-        const src = document.createElement("source");
-        src.src = musicSource;
-        audioElem.appendChild(src);
-      }
-      const musicBtn = document.getElementById("musicButton");
-      function toggleAudio() {
-        if (!musicSource) return;
-        if (audioElem.paused) {
-          audioElem.play().catch(() => {});
-          musicBtn.innerHTML = "♪";
-        } else {
-          audioElem.pause();
-          musicBtn.innerHTML = "♫";
-        }
-      }
-      musicBtn.addEventListener("click", toggleAudio);
-      document.body.addEventListener("click", function firstPlay() {
-        if (musicSource && audioElem.paused) {
-          audioElem.play().catch(() => {});
-          musicBtn.innerHTML = "♪";
-        }
-        document.body.removeEventListener("click", firstPlay);
-      });
+   const audioElem = document.getElementById("bgAudio"); const musicBtn = document.getElementById("musicButton"); musicBtn.addEventListener("click", () => { if (audioElem.paused) { audioElem.play().then(() => { musicBtn.innerHTML = "♪"; }).catch(() => { alert("Unable to play music. Please allow audio playback in your browser settings."); }); } else { audioElem.pause(); musicBtn.innerHTML = "♫"; } }); if (musicSource) { audioElem.src = musicSource; }
 
       // RSVP MODAL
       const rsvpModal = document.getElementById("rsvpModalSimple");
